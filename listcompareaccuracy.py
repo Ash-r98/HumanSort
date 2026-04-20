@@ -11,4 +11,4 @@ def listCompareAccuracy(oglist, newlist):
         if newlist[i] == oglist[i]:
             correct += 1
 
-    return round(correct/biglen, 4)
+    return round(correct/biglen, 4), biglen - correct
