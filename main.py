@@ -1,5 +1,7 @@
 from random import randint
 from datetime import datetime, timedelta
+from quicksort import quickSort
+from listcompareaccuracy import listCompareAccuracy
 
 # Range for length of data
 itemnumlower = 5
@@ -11,6 +13,7 @@ itemrangehigher = 99
 data = []
 for i in range(randint(itemnumlower, itemnumhigher)):
     data.append(randint(itemrangelower, itemrangehigher))
+sorteddata = quickSort(data)
 
 print(data)
 print()
@@ -31,8 +34,11 @@ for i in range(len(data)):
 endtime = datetime.now()
 timetaken = endtime - startime
 
+accuracy = listCompareAccuracy(sorteddata, humandata)
+
 print()
 print(f"Original data:\n{data}\n")
 print(f"Hopefully sorted data:\n{humandata}\n")
 
 print(f"Time taken: {timetaken}")
+print(f"Accuracy: {accuracy*100}%")
