@@ -16,6 +16,8 @@ print(data)
 print()
 print("Sorted List:")
 
+startime = datetime.now()
+
 humandata = []
 for i in range(len(data)):
     while True:
@@ -25,6 +27,12 @@ for i in range(len(data)):
             break
         except:
             print("Invalid input")
+
+endtime = datetime.now()
+timetaken = endtime - startime
+
 print()
 print(f"Original data:\n{data}\n")
-print(f"Hopefully sorted data:\n{humandata}")
+print(f"Hopefully sorted data:\n{humandata}\n")
+
+print(f"Time taken: {timetaken}")
