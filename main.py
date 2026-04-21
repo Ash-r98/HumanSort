@@ -2,6 +2,7 @@ from random import randint
 from datetime import datetime, timedelta
 from quicksort import quickSort
 from listcompareaccuracy import listCompareAccuracy
+from time import sleep
 
 # Range for length of data
 itemnumlower = 5
@@ -12,6 +13,13 @@ itemrangehigher = 99
 
 
 # Main
+
+# Countdown
+countdown = 3
+for i in range(countdown):
+    print(countdown-i, end="\r")
+    sleep(1)
+
 
 data = []
 for i in range(randint(itemnumlower, itemnumhigher)):
@@ -65,7 +73,7 @@ for i in range(len(rankscores)):
         rankindex = i
         rankflag = True
 if not rankflag: # If rank outside all rank scores then will be lowest rank
-    rankindex = -1
+    rankindex = len(ranks)-1
 
 print()
 print(f"Rank: {ranks[rankindex]}")
