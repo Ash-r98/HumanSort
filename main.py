@@ -75,5 +75,9 @@ for i in range(len(rankscores)):
 if not rankflag: # If rank outside all rank scores then will be lowest rank
     rankindex = len(ranks)-1
 
+for i in range(incorrect):
+    if rankindex < len(ranks)-1: # Can't go past F rank
+        rankindex += 1
+
 print()
 print(f"Rank: {ranks[rankindex]}")
