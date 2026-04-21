@@ -45,6 +45,7 @@ incorrect = accuracyresult[1]
 print()
 print(f"Original data:\n{data}\n")
 print(f"Hopefully sorted data:\n{humandata}\n")
+print(f"Actually sorted data:\n{sorteddata}\n")
 
 print(f"Time taken: {timetaken}")
 print(f"Time taken per item: {timeperitem}")
