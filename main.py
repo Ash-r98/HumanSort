@@ -54,26 +54,17 @@ print(f"Accuracy: {accuracy*100}%")
 # Ranks based on time and incorrect answers
 # Times (sec per item): 1.5, 2, 3, 4, 5, 6, 6+
 # -1 Rank per incorrect answer
-ranks = ['SS', 'S', 'A', 'B', 'C', 'D', 'F']
+ranks = ['How', 'SSS', 'SS', 'S', 'A', 'B', 'C', 'D', 'F']
+rankscores = [1000, 1250, 1500, 2000, 3000, 4000, 5000, 6000]
 
-if timeperitem < timedelta(milliseconds=1500):
-    rankindex = 0
-elif timeperitem < timedelta(milliseconds=2000):
-    rankindex = 1
-elif timeperitem < timedelta(milliseconds=3000):
-    rankindex = 2
-elif timeperitem < timedelta(milliseconds=4000):
-    rankindex = 3
-elif timeperitem < timedelta(milliseconds=5000):
-    rankindex = 4
-elif timeperitem < timedelta(milliseconds=6000):
-    rankindex = 5
-else:
-    rankindex = 6
-
-for i in range(incorrect):
-    if rankindex < 6: # Can't go past F rank
-        rankindex += 1
+rankindex = -1 # Backup value
+rankflag = False # Flag for lowest rank
+for i in range(len(rankscores)):
+    if timeperitem < timedelta(milliseconds=rankscores[i]):
+        rankindex = i
+        rankflag = True
+if not rankflag: # If rank outside all rank scores then will be lowest rank
+    rankindex = -1
 
 print()
 print(f"Rank: {ranks[rankindex]}")
