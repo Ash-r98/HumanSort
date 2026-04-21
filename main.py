@@ -52,7 +52,7 @@ incorrect = accuracyresult[1]
 
 print()
 print(f"Original data:\n{data}\n")
-print(f"Hopefully sorted data:\n{humandata}\n")
+print(f"Humanly sorted data:\n{humandata}\n")
 print(f"Actually sorted data:\n{sorteddata}\n")
 
 print(f"Time taken: {timetaken}")
@@ -72,6 +72,7 @@ for i in range(len(rankscores)):
     if timeperitem < timedelta(milliseconds=rankscores[i]):
         rankindex = i
         rankflag = True
+        break
 if not rankflag: # If rank outside all rank scores then will be lowest rank
     rankindex = len(ranks)-1
 
